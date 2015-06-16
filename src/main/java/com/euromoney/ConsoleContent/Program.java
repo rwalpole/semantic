@@ -20,7 +20,7 @@ public class Program {
 		final EndpointReader endpointReader = new DBpediaReader();
 		queryService.setEndpointReader(endpointReader);
 		try {
-			queryService.askWithSparql("Where was David Cameron born?");
+			queryService.ask("Where was David Cameron born?");
 		} catch (ServiceException svex) {
 			System.err.println(svex.getMessage());
 		}

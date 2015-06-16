@@ -16,20 +16,20 @@ public class QueryService {
      * @return
      * @throws ServiceException
      */
-    public String ask(final String question) throws ServiceException {
-        final String lcQuestion = question.toLowerCase();
-        if(lcQuestion.contains("birth place of")) {
-            final String name = extractName(question, "birth place of", "?", 14);
-            return getEndpointReader().extractResult(name.replace(" ", "_"));
-        }
-        else if(lcQuestion.contains("where was") && lcQuestion.contains("born?")) {
-            final String name = extractName(question, "where was", "born?", 9);
-            return getEndpointReader().extractResult(name.replace(" ", "_"));
-
-        } else {
-            return "Sorry, I do not understand your question";
-        }
-    }
+//    public String ask(final String question) throws ServiceException {
+//        final String lcQuestion = question.toLowerCase();
+//        if(lcQuestion.contains("birth place of")) {
+//            final String name = extractName(question, "birth place of", "?", 14);
+//            return getEndpointReader().extractResult(name.replace(" ", "_"));
+//        }
+//        else if(lcQuestion.contains("where was") && lcQuestion.contains("born?")) {
+//            final String name = extractName(question, "where was", "born?", 9);
+//            return getEndpointReader().extractResult(name.replace(" ", "_"));
+//
+//        } else {
+//            return "Sorry, I do not understand your question";
+//        }
+//    }
 
     /**
      * Returns the place of birth, if available, for a named person.
@@ -43,7 +43,7 @@ public class QueryService {
      * @return
      * @throws ServiceException
      */
-    public void askWithSparql(final String question) throws ServiceException {
+    public String ask(final String question) throws ServiceException {
         // Example questions..
         // What is the birth place of David Cameron?
         // Where was David Cameron born?
@@ -51,14 +51,14 @@ public class QueryService {
         if(lcQuestion.contains("birth place of")) {
             final String name = extractName(question, "birth place of", "?", 14);
             //return getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
-            getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
+            return getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
         }
         else if(lcQuestion.contains("where was") && lcQuestion.contains("born?")) {
             final String name = extractName(question, "where was", "born?", 9);
-            //return getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
+            return getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
 
         } else {
-            //return "Sorry, I do not understand your question";
+            return "Sorry, I do not understand your question";
         }
     }
 

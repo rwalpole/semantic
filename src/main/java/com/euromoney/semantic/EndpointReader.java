@@ -9,8 +9,9 @@ import com.sun.corba.se.impl.protocol.ServantCacheLocalCRDBase;
  */
 public interface EndpointReader {
 
-    public String extractResult(String resourceName) throws ServiceException;
+    //public String extractResult(String resourceName) throws ServiceException;
 
     public String extractResultWithSparql(String resourceName) throws ServiceException;
+
 
 }

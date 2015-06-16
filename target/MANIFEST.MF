@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Build-Jdk: 1.8.0_45
-Built-By: rkw
+Built-By: rob
 Created-By: IntelliJ IDEA
 Main-Class: com.euromoney.ConsoleContent.Program
 

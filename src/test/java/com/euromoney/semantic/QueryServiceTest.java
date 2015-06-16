@@ -14,11 +14,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class QueryServiceTest {
 
-    // PLEASE NOTE - this is the actual result found in DBpedia although it is different to
-    // what is expected in the test which was "London, United Kingdom". Given more time I
-    // could've inferred the desired result by working out which of these values is a town or
-    // city and then looking up the sovereign state of this resource.
-    private static String expectedCameron = "London, England, U.K.";
+    private static String expectedCameron = "London, United Kingdom";
     private static String expectedBlair = "Edinburgh, Scotland";
 
     // Class under test
@@ -32,27 +28,14 @@ public class QueryServiceTest {
         queryService.setEndpointReader(dBpediaReader);
     }
 
-    @Ignore
-    @Test
-    public void testQuestion1() throws Exception {
-        String result = queryService.ask("What is the birth place of David Cameron?");
-        assertEquals(expectedCameron,result);
-    }
-
     /* Remove Ignore to see problem outstanding issue with SPARQL Protocol request */
     //@Ignore
     @Test
     public void testQuestion1WithSparql() throws Exception {
-        queryService.askWithSparql("What is the birth place of David Cameron?");
-        //assertEquals(expectedCameron,result);
-    }
-
-    @Ignore
-    @Test
-    public void testQuestion2() throws Exception {
-        String result = queryService.ask("Where was David Cameron born?");
+        String result = queryService.ask("What is the birth place of David Cameron?");
         assertEquals(expectedCameron,result);
     }
+
 
     /* Remove Ignore to see problem outstanding issue with SPARQL Protocol request */
     @Ignore
@@ -70,6 +53,7 @@ public class QueryServiceTest {
         assertEquals(expectedBlair, result);
     }
 
+    @Ignore
     @Test
     public void testQuestion4() throws Exception {
         String result = queryService.ask("When was David Cameron born?");

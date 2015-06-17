@@ -20,12 +20,12 @@ public class QueryServiceTest {
     // Class under test
     private QueryService queryService;
 
-    private EndpointReader dBpediaReader = new DBpediaReader();
+    private QueryHandler queryHandler = new QueryHandler();
 
     @Before
     public void setUp() {
         queryService = new QueryService();
-        queryService.setEndpointReader(dBpediaReader);
+        queryService.setQueryHandler(queryHandler);
     }
 
     /* Remove Ignore to see problem outstanding issue with SPARQL Protocol request */

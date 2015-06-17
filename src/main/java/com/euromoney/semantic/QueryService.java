@@ -5,31 +5,7 @@ package com.euromoney.semantic;
  */
 public class QueryService {
 
-    private EndpointReader endpointReader;
-
-    /**
-     * Returns the place of birth, if available, for a named person.
-     * This method attempts to extract the person's name based on it's
-     * presumed position within the text.
-     *
-     * @param question
-     * @return
-     * @throws ServiceException
-     */
-//    public String ask(final String question) throws ServiceException {
-//        final String lcQuestion = question.toLowerCase();
-//        if(lcQuestion.contains("birth place of")) {
-//            final String name = extractName(question, "birth place of", "?", 14);
-//            return getEndpointReader().extractResult(name.replace(" ", "_"));
-//        }
-//        else if(lcQuestion.contains("where was") && lcQuestion.contains("born?")) {
-//            final String name = extractName(question, "where was", "born?", 9);
-//            return getEndpointReader().extractResult(name.replace(" ", "_"));
-//
-//        } else {
-//            return "Sorry, I do not understand your question";
-//        }
-//    }
+    private QueryHandler queryHandler;
 
     /**
      * Returns the place of birth, if available, for a named person.
@@ -50,12 +26,11 @@ public class QueryService {
         final String lcQuestion = question.toLowerCase();
         if(lcQuestion.contains("birth place of")) {
             final String name = extractName(question, "birth place of", "?", 14);
-            //return getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
-            return getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
+            return getQueryHandler().extractResultWithSparql(name.replace(" ", "_"));
         }
         else if(lcQuestion.contains("where was") && lcQuestion.contains("born?")) {
             final String name = extractName(question, "where was", "born?", 9);
-            return getEndpointReader().extractResultWithSparql(name.replace(" ", "_"));
+            return getQueryHandler().extractResultWithSparql(name.replace(" ", "_"));
 
         } else {
             return "Sorry, I do not understand your question";
@@ -68,17 +43,12 @@ public class QueryService {
         return question.substring(start, end).trim();
     }
 
-    public void setEndpointReader(final EndpointReader endpointReader) {
-        this.endpointReader = endpointReader;
+    public void setQueryHandler(final QueryHandler queryHandler) {
+        this.queryHandler = queryHandler;
     }
 
-    public EndpointReader getEndpointReader() {
-        return endpointReader;
+    public QueryHandler getQueryHandler() {
+        return queryHandler;
     }
-
-
-
-
-
 
 }

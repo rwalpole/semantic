@@ -18,8 +18,6 @@ public class Vocabulary {
 
     public static Model createModel() {
 		return ModelFactory.createDefaultModel();
-        //model.setNsPrefix("", SPARQL_RESULT_URI);
-        //model.setNsPrefix("dcterms", DCTerms.getURI());
-        //return model;
     }
+
 }

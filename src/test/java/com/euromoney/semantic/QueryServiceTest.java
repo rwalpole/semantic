@@ -29,7 +29,7 @@ public class QueryServiceTest {
     }
 
     /* Remove Ignore to see problem outstanding issue with SPARQL Protocol request */
-    //@Ignore
+    @Ignore
     @Test
     public void testQuestion1WithSparql() throws Exception {
         String result = queryService.ask("What is the birth place of David Cameron?");

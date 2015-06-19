@@ -2,8 +2,10 @@
 
 Currently this application allows you ask questions about someone's place of birth by formulating questions such as "What is the birth place of David Cameron?" or "Where was David Cameron born?".
 
-To run the application simple you need to build the jar file by runnning
+To use the application you first need to build the jar file by running the following Maven command:
 
     mvn clean compile assembly:single
 
-and then running the executable jar file found in the target directory.
+You can then run the executable jar file found in the target directory, for example:
+
+    java -jar SemanticRecruitmentTest-0.0.1-SNAPSHOT-jar-with-dependencies.jar

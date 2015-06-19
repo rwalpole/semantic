@@ -1,6 +1,6 @@
 ## Semantic Search Tool
 
-Currently this application allows you ask questions about someone's place of birth by formulating questions such as "What is the birth place of David Cameron?" or "Where was David Cameron born?".
+Currently this application allows you ask questions of DBpedia about someone's place of birth by formulating questions such as "What is the birth place of David Cameron?" or "Where was David Cameron born?".
 
 To use the application you first need to build the jar file by running the following Maven command:
 

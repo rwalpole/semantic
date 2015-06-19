@@ -10,18 +10,17 @@ import java.util.List;
 public class QueryHandler {
 
     private Endpoint endpoint;
+    private Model model;
 
-    public String extractResultWithSparql(final String resourceName) throws ServiceException {
+    public String runQuery(final String resourceName) throws ServiceException {
         getEndpoint().setSparqlQuery(getSparqlQuery(resourceName));
         getEndpoint().openConnection();
         getEndpoint().setRequestMethod("GET");
         getEndpoint().setDoOutput(true);
+        getModel().read(getEndpoint().getInputStream(),null,"TURTLE");
 
-        final Model model = ModelFactory.createDefaultModel();
-        model.read(getEndpoint().getInputStream(),null,"TURTLE");
-
-        final String town = extractValue("town", model);
-        final String country = extractValue("country", model);
+        final String town = extractValue("town", getModel());
+        final String country = extractValue("country", getModel());
         if(town.length() == 0) {
             return "Sorry, no town of birth found.";
         } else if(country.length() == 0) {
@@ -72,6 +71,14 @@ public class QueryHandler {
     //@Override
     public void setEndpoint(Endpoint endpoint) {
         this.endpoint = endpoint;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
     }
 
 

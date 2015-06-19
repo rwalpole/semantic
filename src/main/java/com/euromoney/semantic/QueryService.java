@@ -26,11 +26,11 @@ public class QueryService {
         final String lcQuestion = question.toLowerCase();
         if(lcQuestion.contains("birth place of")) {
             final String name = extractName(question, "birth place of", "?", 14);
-            return getQueryHandler().extractResultWithSparql(name.replace(" ", "_"));
+            return getQueryHandler().runQuery(name.replace(" ", "_"));
         }
         else if(lcQuestion.contains("where was") && lcQuestion.contains("born?")) {
             final String name = extractName(question, "where was", "born?", 9);
-            return getQueryHandler().extractResultWithSparql(name.replace(" ", "_"));
+            return getQueryHandler().runQuery(name.replace(" ", "_"));
 
         } else {
             return "Sorry, I do not understand your question";
